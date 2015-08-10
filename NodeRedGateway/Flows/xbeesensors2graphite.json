@@ -1,0 +1,159 @@
+[
+  {
+    "id": "6503c8f6.9afc38",
+    "type": "tcp in",
+    "server": "server",
+    "host": "",
+    "port": "2007",
+    "datamode": "single",
+    "datatype": "utf8",
+    "newline": "",
+    "topic": "raw",
+    "name": "data from xbee sensor proxy",
+    "base64": false,
+    "x": 130,
+    "y": 39,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      [
+        "370deab8.c8f216"
+      ]
+    ]
+  },
+  {
+    "id": "bcfc0c10.4303f",
+    "type": "debug",
+    "name": "",
+    "active": false,
+    "console": "false",
+    "complete": "payload",
+    "x": 842,
+    "y": 184,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "370deab8.c8f216",
+    "type": "json",
+    "name": "json to obj",
+    "x": 330,
+    "y": 32,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      [
+        "71c49e1e.8e3b6"
+      ]
+    ]
+  },
+  {
+    "id": "71c49e1e.8e3b6",
+    "type": "function",
+    "name": "format for carbon, whisper",
+    "func": "\nvar ts = Math.round((new Date()).getTime() \/ 1000);\n\nvar msg0 = {};\nmsg0.payload = \"tinaja.\"+msg.payload.sensor_id+\".0 \"+ String(msg.payload.data.V0) +\" \"+ String(ts) +\"\\n\";\n\nvar msg1 = {};\nvar aRefV = 3.3;\nvar dacVal1 = msg.payload.data.V1;\nvar voltage = dacVal1 * aRefV;\nvoltage = voltage \/ 1024;\nvar tempC = (voltage - 0.5) * 100;\nvar tempF = Math.round(tempC * 9 \/ 5) + 32;\nmsg1.payload = \"tinaja.\"+msg.payload.sensor_id+\".1 \"+ String(tempF) +\" \"+ String(ts) +\"\\n\";\n\nvar msg2 = {};\nmsg2.payload = \"tinaja.\"+msg.payload.sensor_id+\".2 \"+ String(msg.payload.data.V2) +\" \"+ String(ts) +\"\\n\";\n\nvar msg3 = {};\nmsg3.payload = \"tinaja.\"+msg.payload.sensor_id+\".3 \"+ String(msg.payload.data.V3) +\" \"+ String(ts) +\"\\n\";\n\nreturn [msg,msg0,msg1,msg2,msg3];\n",
+    "outputs": "5",
+    "valid": true,
+    "x": 356,
+    "y": 147,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      [
+        
+      ],
+      [
+        "473d11df.b8c2f",
+        "ddb82e70.2247d"
+      ],
+      [
+        "bcfc0c10.4303f",
+        "ddb82e70.2247d"
+      ],
+      [
+        "637e8181.9c818",
+        "ddb82e70.2247d"
+      ],
+      [
+        "708f0a27.8f70f4",
+        "ddb82e70.2247d"
+      ]
+    ]
+  },
+  {
+    "id": "ad69526c.5296b",
+    "type": "debug",
+    "name": "",
+    "active": false,
+    "console": "false",
+    "complete": "payload",
+    "x": 841,
+    "y": 294,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "708f0a27.8f70f4",
+    "type": "function",
+    "name": "Send HI over 700",
+    "func": "\nvar simpleset = msg.payload.split(\" \");\nvar movemnt = simpleset[1];\n\nvar msg2 = {};\nmsg2.payload = \"13:LO \" + String(movemnt);\nif (movemnt > 700) {\n\tmsg2.payload = \"13:HI \" + String(movemnt);\n}\n\nreturn [msg,msg2];",
+    "outputs": "2",
+    "valid": true,
+    "x": 603,
+    "y": 272,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      [
+        
+      ],
+      [
+        "ad69526c.5296b"
+      ]
+    ]
+  },
+  {
+    "id": "637e8181.9c818",
+    "type": "debug",
+    "name": "",
+    "active": false,
+    "console": "false",
+    "complete": "payload",
+    "x": 842,
+    "y": 239,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "473d11df.b8c2f",
+    "type": "debug",
+    "name": "",
+    "active": false,
+    "console": "false",
+    "complete": "payload",
+    "x": 843,
+    "y": 127,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "ddb82e70.2247d",
+    "type": "tcp out",
+    "host": "192.168.84.236",
+    "port": "2003",
+    "beserver": "client",
+    "base64": false,
+    "end": false,
+    "name": "sensors to groid",
+    "x": 780,
+    "y": 48,
+    "z": "1d8f1b74.e270e5",
+    "wires": [
+      
+    ]
+  }
+]

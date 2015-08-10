@@ -1,0 +1,100 @@
+[
+  {
+    "id": "cf0a2b4b.30f5d8",
+    "type": "exec",
+    "command": "echo \"pl c1 off\"",
+    "addpay": false,
+    "append": " | nc 192.168.84.232 1099",
+    "useSpawn": "",
+    "name": "netcat to tinajagate3",
+    "x": 849,
+    "y": 199,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        
+      ],
+      [
+        
+      ],
+      [
+        "b059e6b4.4fa618"
+      ]
+    ]
+  },
+  {
+    "id": "61021cde.9efde4",
+    "type": "inject",
+    "name": "X10 C1 OFF",
+    "topic": "",
+    "payload": "pl c1 off",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 717,
+    "y": 89,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "cf0a2b4b.30f5d8"
+      ]
+    ]
+  },
+  {
+    "id": "897ccf7a.76833",
+    "type": "inject",
+    "name": "X10 C1 ON",
+    "topic": "",
+    "payload": "\"pl c1 on\"",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 714,
+    "y": 40,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "985d27ab.67a2d8"
+      ]
+    ]
+  },
+  {
+    "id": "985d27ab.67a2d8",
+    "type": "exec",
+    "command": "echo \"pl c1 on\"",
+    "addpay": false,
+    "append": " | nc 192.168.84.232 1099",
+    "useSpawn": "",
+    "name": "netcat to tinajagate3",
+    "x": 847,
+    "y": 131,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        
+      ],
+      [
+        "b059e6b4.4fa618"
+      ],
+      [
+        
+      ]
+    ]
+  },
+  {
+    "id": "b059e6b4.4fa618",
+    "type": "debug",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "payload",
+    "x": 1065,
+    "y": 130,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      
+    ]
+  }
+]

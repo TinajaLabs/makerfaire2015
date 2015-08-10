@@ -1,0 +1,193 @@
+
+[
+  {
+    "id": "9decedb7.62131",
+    "type": "inject",
+    "name": "Radio 13 On",
+    "topic": "13",
+    "payload": "13:HI",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 108,
+    "y": 176,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "59c5f476.a63a0c",
+    "type": "debug",
+    "name": "actuator responses",
+    "active": true,
+    "console": "false",
+    "complete": "payload",
+    "x": 443,
+    "y": 215,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "d2ad2a7e.2d52d8",
+    "type": "tcp out",
+    "host": "192.168.84.232",
+    "port": "4056",
+    "beserver": "client",
+    "base64": false,
+    "end": false,
+    "name": "msg to xbee proxy",
+    "x": 439,
+    "y": 270,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "e794d795.186b28",
+    "type": "inject",
+    "name": "Radio 13 Off",
+    "topic": "13",
+    "payload": "13:LO",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 108,
+    "y": 214,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "5d15415.fa2eac",
+    "type": "inject",
+    "name": "Radio 15 On",
+    "topic": "15",
+    "payload": "15:HI",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 107,
+    "y": 276,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "6bc3c639.943c38",
+    "type": "inject",
+    "name": "Radio 15 Off",
+    "topic": "15",
+    "payload": "15:LO",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 107,
+    "y": 315,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "eb828ccf.147d7",
+    "type": "inject",
+    "name": "Radio 29 Off",
+    "topic": "29",
+    "payload": "29:LO",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 113,
+    "y": 442,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "684da0b8.97b26",
+    "type": "inject",
+    "name": "Radio 29 On",
+    "topic": "29",
+    "payload": "29:HI",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 114,
+    "y": 406,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "21d7bae6.de2846",
+    "type": "inject",
+    "name": "Radio 16 Off",
+    "topic": "16",
+    "payload": "16:LO",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 107,
+    "y": 102,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  },
+  {
+    "id": "908c62ff.6f73a",
+    "type": "inject",
+    "name": "Radio 16 On",
+    "topic": "16",
+    "payload": "16:HI",
+    "payloadType": "string",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 107,
+    "y": 67,
+    "z": "cb5fa895.34a058",
+    "wires": [
+      [
+        "d2ad2a7e.2d52d8",
+        "59c5f476.a63a0c"
+      ]
+    ]
+  }
+]
