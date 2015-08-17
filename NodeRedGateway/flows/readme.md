@@ -11,7 +11,7 @@ To install theses flows you basically cut and paste the json formatted configura
 * **nodered2sensorgate.json** - this flow sets up a number of injection nodes to stand in as switches; mainly for testing purposes.  This sends a specialized string back to the sensorgate2.py script which has a TCP socket listener and then it redirects the signal back to the XBee radios turnuing a digital pin high/low; which can turn and LED/relay on/off.
 * **nodered2netcatx10.json** - this one, as above, has injection nodes to stand in as switches which trigger an execution module.  The execution module is just running a linux command like this: ```echo "pl c1 on"  | nc tinajagate3 1099```.  This command runs the mochad application which provides access to the X10 system.
 * **capswitch2x10.json** - this is an early experiment with using the esp8266 wifi modules.  The esp-01 module has been set up as a web server which takes a url like this:
-** to set the GPIO01 pin high: http://192.168.84.153/gpio/1
-** to set the GPIO01 pin low : http://192.168.84.153/gpio/0
-** There are some injection nodes configured with these URLs so we can set up an LED/Relay to turn things on/off.
+ * to set the GPIO01 pin high: http://192.168.84.153/gpio/1
+ * to set the GPIO01 pin low : http://192.168.84.153/gpio/0
+ * There are some injection nodes configured with these URLs so we can set up an LED/Relay to turn things on/off.
 
