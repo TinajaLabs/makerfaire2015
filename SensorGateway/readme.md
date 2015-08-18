@@ -9,3 +9,4 @@ The folders hold the following:
 * /home/mochad* - applicattion files for running mochad, an X10 support library
 * /etc/tinaja - the config file, tinaja.conf 
 * /etc/init.d - the init file, tinaja_sensor
+
